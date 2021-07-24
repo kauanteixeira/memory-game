@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+:root {
+    --standardFont: 'Righteous', sans-serif;
+    --bgColorFront: #101c2c;
+    --bgColorBack: #05c3ff;
+    --shadow: 0.625rem 0.625rem 0.625rem rgba(0, 0, 0, 0.45);
+    --fontSize: 1.875rem;
+    --cardWid: 9.375rem;
+    --cardHei: 9.375rem;
+    --background-body: #c7cdd3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--standardFont);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--background-body);
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: var(--background-body);
+}
+
+#title {
+    position: relative;
+    top: 2rem;
+    font-size: 2.2rem;
+}
+
+.card {
+    width: var(--cardWid);
+    height: var(--cardHei);
+    position: relative;
+
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.card_front, .card_back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    box-shadow: var(--shadow);
+    backface-visibility: hidden;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.card_front {
+    transform: rotateY(180deg);
+    background-color: var(--bgColorFront);
+}
+
+.card_back {
+    color: var(--bgColorFront);
+    background-color: var(--bgColorBack);
+    font-size: var(--fontSize);
+}
+
+#gameOver {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    font-size: var(--fontSize);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+}
+
+#restart {
+    padding: 1.25rem;
+    font-size: 1.25rem;
+    background-color: rgb(255, 217, 0);
+    border: none;
+    border-radius: .625rem;
+    margin-top: .625rem;
+}
+
+#gameBoard {
+    max-width: 43.75rem;
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    gap: 1.25rem;
+}
+@media (max-width: 500px) {
+    #container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        height: 100vh;
+        background-color: var(--background-body);
+    }
+    
+    #title {
+        position: relative;
+        top: 2rem;
+        font-size: 2.2rem;
+    }
+    
+    .card {
+        width: 4.6875rem;
+        height: 4.6875rem;
+        position: relative;
+    
+        transform-style: preserve-3d;
+        transition: transform .5s;
+    }
+    .card_front, .card_back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: .625rem;
+        box-shadow: var(--shadow);
+        backface-visibility: hidden;
+    }
+    
+    .flip {
+        transform: rotateY(180deg);
+    }
+    
+    .card_front {
+        transform: rotateY(180deg);
+        background-color: var(--bgColorFront);
+    }
+    
+    .card_back {
+        color: var(--bgColorFront);
+        background-color: var(--bgColorBack);
+        font-size: .9375rem;
+    }
+    
+    #gameOver {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        font-size: 2rem;
+        display: none;
+        text-align: center;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        top: 0;
+    }
+    
+    #restart {
+        padding: 1rem;
+        font-size: 1rem;
+        background-color: rgb(255, 217, 0);
+        border: none;
+        border-radius: .625rem;
+        margin-top: .625rem;
+    }
+    
+    #gameBoard {
+        max-width: 21.875rem;
+        display: grid;
+        grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+        gap: .625rem;
+    }
+    img {
+        width: 3.125rem;
+        height: 3.125rem;
+    }
+}
